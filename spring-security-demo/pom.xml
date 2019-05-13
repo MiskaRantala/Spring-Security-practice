@@ -40,6 +40,13 @@
 			<version>5.0.0.RELEASE</version>
 		</dependency>
 
+		<!-- Add Spring Security Taglibs support -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.0.0.RELEASE</version>
+		</dependency>
+
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

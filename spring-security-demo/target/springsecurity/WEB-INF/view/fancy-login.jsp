@@ -36,7 +36,7 @@
             <div style="padding-top: 30px" class="panel-body">
 
                 <!-- Login Form -->
-                <form:form action="${pageContext.request.contextPath}/authenticateTheUser"
+                <form action="${pageContext.request.contextPath}/authenticateTheUser"
                            method="POST"
                            class="form-horizontal">
 
@@ -74,9 +74,14 @@
 
                     <!-- Password -->
                     <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
 
-                        <input type="password" name="password" placeholder="password" class="form-control" >
+                        <input type="password"
+                               name="password"
+                               placeholder="password"
+                               class="form-control" >
                     </div>
 
                     <!-- Login/Submit Button -->
@@ -86,7 +91,12 @@
                         </div>
                     </div>
 
-                </form:form>
+                    <!-- Adding CSRF token manually -->
+                    <input type="hidden"
+                           name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
+
+                </form>
 
             </div>
 

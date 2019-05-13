@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +16,14 @@
 
         This is the homepage of Miska Rantala.
 
-        <!-- Add a logout button -->
+        <!-- display username and role -->
+        <p>
+            User: <security:authentication property="principal.username" />
+            <br><br>
+            Role(s): <security:authentication property="principal.authorities" />
+        </p>
+
+        <!-- add a logout button -->
         <form:form action="${pageContext.request.contextPath}/logout"
                    method="POST">
 
