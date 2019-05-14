@@ -12,9 +12,8 @@
         <h2>Welcome to the homepage! </h2>
         <hr>
 
-        <p>Logged in!</p>
-
         This is the homepage for our company.
+        <hr>
 
         <!-- display username and role -->
         <p>
@@ -23,20 +22,25 @@
             Role(s): <security:authentication property="principal.authorities" />
         </p>
 
-        <hr>
+        <security:authorize access="hasRole('MANAGER')">
 
-        <!-- Add a link to point to /leaders ... this is for the managers -->
-        <p>
-            <a href="${pageContext.request.contextPath}/managers">Manager meeting</a>
-            (Only for Managers)
-        </p>
-        <hr>
+            <!-- Add a link to point to /leaders ... Only seen by managers -->
+            <p>
+                <a href="${pageContext.request.contextPath}/managers">Manager meeting</a>
+                (Only for Managers)
+            </p>
 
-        <!-- Add a link to point to /admins ... this is for the admins -->
-        <p>
-            <a href="${pageContext.request.contextPath}/admins">Admins' very important meeting</a>
-            (Only for Admins)
-        </p>
+        </security:authorize>
+
+        <security:authorize access="hasRole('ADMIN')">
+
+            <!-- Add a link to point to /admins ... Only seen by admins -->
+            <p>
+                <a href="${pageContext.request.contextPath}/admins">Admins' very important meeting</a>
+                (Only for Admins)
+            </p>
+
+        </security:authorize>
         <hr>
 
         <!-- add a logout button -->
